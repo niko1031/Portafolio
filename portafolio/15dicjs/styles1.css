@@ -1,0 +1,30 @@
+table {
+    border-collapse: separate;
+    width: 100%;
+  }
+  
+  th, td {
+    border: 1px solid #080808;
+    padding: 8px;
+    text-align: center;
+    border-radius: 20px;
+  }
+
+  th {
+    background-color: #2306c5c4;
+  }
+
+  .aprobada {
+    background-color: #68ff68; 
+  }
+
+  .reprobada {
+    background-color: #fe5252; 
+  }
+
+  #formularioNotas {
+    border: solid 2px;
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+  }

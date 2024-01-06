@@ -1,0 +1,22 @@
+table {
+    border-collapse: separate;
+    width: 100%;
+  }
+
+  th, td {
+    border: 1px solid #0e0c0c;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #02daf6;
+  }
+
+  .aprobada {
+    background-color: #68ff68; 
+  }
+
+  .reprobada {
+    background-color: #fe5252; 
+  }

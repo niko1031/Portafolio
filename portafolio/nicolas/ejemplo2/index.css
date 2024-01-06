@@ -1,0 +1,36 @@
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+#main{
+    display: flex;
+    flex-direction: row;
+}
+#boxFormulario{
+    display: flex;
+    flex-direction: column;
+}
+#boxFormulario label{
+    margin: 10px 0;
+}
+
+.container{
+    border: 5px solid;
+    width: 200px;
+    padding: 20px;
+}
+.boton{
+    text-align: center;
+    padding: 20px;
+}
+#borrar{
+display: none;
+}

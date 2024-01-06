@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Gestión de Notas</title>
+  <link rel="stylesheet" href="styles1.css">
+</head>
+<body>
+  <marquee><h1>Sistema de Gestión de Notas Riwi</h1></marquee>
+  <form id="formularioNotas">
+    <div class="estudiante1">
+      <label for="estudiante">Estudiante:</label>
+      <input type="text" id="estudiante" name="estudiante" required>
+    </div>
+    <br>
+    <div class="estudiante2">
+      <label for="asignatura">Asignatura:</label>
+      <input type="text" id="asignatura" name="asignatura" required>
+    </div>
+    <br>
+    <div class="estudiante3">
+      <label for="nota1">Nota 1:</label>
+      <input type="number" id="nota1" name="nota1" required>
+    </div>
+    <br>
+    <div class="estudiante4">
+      <label for="nota2">Nota 2:</label>
+      <input type="number" id="nota2" name="nota2" required>
+    </div>
+    <br>
+    <div class="estudiante5">
+      <label for="nota3">Nota 3:</label>
+      <input type="number" id="nota3" name="nota3" required>
+    </div>
+    <br>
+    <div class="estudiante6">
+      <label for="nota4">Nota 4:</label>
+      <input type="number" id="nota4" name="nota4" required>
+    </div>
+    <br>
+    <button type="button" onclick="agregarFila()">Agregar a la tabla</button>
+    <button type="button" onclick="borrarFila()">Borrar</button>
+  </form>
+  <br>
+
+  <table id="tablaNotas">
+    <thead>
+      <tr>
+        <th>Estudiante</th>
+        <th>Asignatura</th>
+        <th>Nota # 1</th>
+        <th>Nota # 2</th>
+        <th>Nota # 3</th>
+        <th>Nota # 4</th>
+        <th>Estado</th>
+        <th>Promedio</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+
+  <script>
+    function agregarFila() {
+    
+      var estudiante = document.getElementById("estudiante").value;
+      var asignatura = document.getElementById("asignatura").value;
+      var nota1 = document.getElementById("nota1").value;
+      var nota2 = document.getElementById("nota2").value;
+      var nota3 = document.getElementById("nota3").value;
+      var nota4 = document.getElementById("nota4").value;
+
+      var nuevaFila = document.createElement("tr");
+
+
+      nuevaFila.innerHTML = `
+        <td>${estudiante}</td>
+        <td>${asignatura}</td>
+        <td class="nota" data-estado="Aprobada">${nota1}</td>
+        <td class="nota" data-estado="Aprobada">${nota2}</td>
+        <td class="nota" data-estado="Aprobada">${nota3}</td>
+        <td class="nota" data-estado="Aprobada">${nota4}</td>
+        <td><button onclick="cambiarEstado(this)">Cambiar Estado</button></td>
+        <td class="promedio"></td>
+      `;
+
+ 
+      document.getElementById("tablaNotas").getElementsByTagName('tbody')[0].appendChild(nuevaFila);
+
+    
+      document.getElementById("formularioNotas").reset();
+    }
+
+    function cambiarEstado(button) {
+      var fila = button.parentNode.parentNode;
+      var celdasNota = fila.querySelectorAll('.nota');
+      var estadoActual = celdasNota[0].getAttribute('data-estado');
+
+      celdasNota.forEach(function (celdaNota) {
+        if (estadoActual === 'Aprobada') {
+          celdaNota.setAttribute('data-estado', 'Reprobada');
+        } else {
+          celdaNota.setAttribute('data-estado', 'Aprobada');
+        }
+        actualizarEstilo(celdaNota);
+      });
+
+      calcularPromedio(fila);
+    }
+
+    function actualizarEstilo(celdaNota) {
+      var estadoActual = celdaNota.getAttribute('data-estado');
+      celdaNota.classList.toggle('aprobada', estadoActual === 'Aprobada');
+      celdaNota.classList.toggle('reprobada', estadoActual === 'Reprobada');
+    }
+
+    function calcularPromedio(fila) {
+      var celdasNotas = fila.querySelectorAll('.nota');
+      var suma = 0;
+      var contador = 0;
+
+      celdasNotas.forEach(function (celdaNota) {
+        suma += parseInt(celdaNota.textContent);
+        contador++;
+      });
+
+      var promedio = suma / contador;
+      fila.querySelector('.promedio').textContent = promedio.toFixed(2);
+    }
+    const borrarFila = () => {
+location.reload();
+}
+  </script>
+
+</body>
+
+</html>

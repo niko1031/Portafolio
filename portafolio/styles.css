@@ -1,0 +1,54 @@
+body{
+
+background-image: url(https://img.freepik.com/foto-gratis/experiencia-programacion-persona-que-trabaja-codigos-computadora_23-2150010125.jpg) ;
+background-repeat: no-repeat;
+background-size: cover;
+}
+.theme-light{
+    background-color: whitesmoke;
+
+}
+
+.theme-light .card{
+    background-color: lightgray;
+}
+
+.theme-light button{
+    background-color: gray;
+    color: white;
+    border: none;
+
+}
+
+.theme-light button:hover{
+    background-color: whitesmoke;
+    color: black;
+    border: none;
+
+}
+
+.theme-light select{
+    background-color: lightgrey;
+    border: none;
+
+}
+
+.theme-light select:hover{
+    background-color: gray;
+    color: whitesmoke;
+     border: none;
+
+}
+.h3{
+    margin-left: 400px;
+    border: solid 3px white;
+    height: 40px;
+    width: 300px;
+    color: white;
+    background-color: black;
+    margin-top: -50px;
+}
+.col-md-1{
+    margin-left: 930px;
+
+}

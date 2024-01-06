@@ -1,0 +1,57 @@
+table {
+    border-collapse: collapse;
+    width: 1000px;
+    margin-left: 420px;
+    margin-top: 60px;
+    text-align: center;
+  }
+    
+  th, td {
+    border: 3px solid;
+    text-align: left;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .container {
+      border: solid 5px;
+      width: 550px;
+      text-align: center;
+      margin-left: 600px;
+      margin-top: 25px;
+      height: 400px;
+  }
+  
+  input {
+      font-size: 15px;
+      width: 300px;
+  }
+  
+  button {
+      background-color: whitesmoke;
+      color: black;
+      font-size: 17px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-right: 10px;
+  }
+  
+
+  
+  label {
+    color: black;
+  }
+  
+  #modoNocturnoBtn {
+    margin-top: 10px;
+  }
+
+  body {
+    background-image: url(https://pbs.twimg.com/profile_images/1272589188513378305/dGcyBL66_400x400.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: purple;
+  }
+  

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Notas Riwi</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<marquee><h1>Sistema de Gestión de Notas Riwi</h1></marquee>
+  <table id="tablaNotas">
+    <thead>
+      <tr>
+        <th>Estudiante</th>
+        <th>Asignatura</th>
+        <th>Nota 1</th>
+        <th>Nota 2</th>
+        <th>Nota 3</th>
+        <th>Nota 4</th>
+        <th>Estado</th>
+        <th>Promedio</th>
+      </tr>
+    </thead>
+    <body>
+      <tr>
+        <td rowspan="4">Daniel Toro</td>
+        <td>Review</td>
+        <td class="nota" data-estado="Aprobada">90</td>
+        <td class="nota" data-estado="Aprobada">80</td>
+        <td class="nota" data-estado="Aprobada">92</td>
+        <td class="nota" data-estado="Aprobada">88</td>
+        <td><button onclick="cambiarEstado(this)">Cambiar Estado</button></td>
+        <td class="promedio"></td>
+      </tr>
+      <tr>
+        <td>Programacion</td>
+        <td class="nota" data-estado="Reprobada">40</td>
+        <td class="nota" data-estado="Reprobada">45</td>
+        <td class="nota" data-estado="Reprobada">55</td>
+        <td class="nota" data-estado="Reprobada">40</td>
+        <td><button onclick="cambiarEstado(this)">Cambiar Estado</button></td>
+        <td class="promedio"></td>
+      </tr>
+      <tr>
+        <td>Ingles</td>
+        <td class="nota" data-estado="Reprobada">30</td>
+        <td class="nota" data-estado="Reprobada">65</td>
+        <td class="nota" data-estado="Reprobada">25</td>
+        <td class="nota" data-estado="Reprobada">40</td>
+        <td><button onclick="cambiarEstado(this)">Cambiar Estado</button></td>
+        <td class="promedio"></td>
+      </tr>
+      <tr>
+        <td>Habilidades para la vida</td>
+        <td class="nota" data-estado="Reprobada">30</td>
+        <td class="nota" data-estado="Reprobada">65</td>
+        <td class="nota" data-estado="Reprobada">25</td>
+        <td class="nota" data-estado="Reprobada">40</td>
+        <td><button onclick="cambiarEstado(this)">Cambiar Estado</button></td>
+        <td class="promedio"></td>
+      </tr>
+    </body>
+  </table>
+  <script>
+    function cambiarEstado(button) {
+      let fila = button.parentNode.parentNode;
+      let celdasNota = fila.querySelectorAll('.nota');
+      let estadoActual = celdasNota[0].getAttribute('data-estado');
+
+      celdasNota.forEach(function (celdaNota) {
+        if (estadoActual === 'Aprobada') {
+          celdaNota.setAttribute('data-estado', 'Reprobada');
+        } else {
+          celdaNota.setAttribute('data-estado', 'Aprobada');
+        }
+        actualizarEstilo(celdaNota);
+      });
+
+      calcularPromedio(fila);
+    }
+
+    function actualizarEstilo(celdaNota) {
+      let estadoActual = celdaNota.getAttribute('data-estado');
+      celdaNota.classList.toggle('aprobada', estadoActual === 'Aprobada');
+      celdaNota.classList.toggle('reprobada', estadoActual === 'Reprobada');
+    }
+
+    function calcularPromedio(fila) {
+      let celdasNotas = fila.querySelectorAll('.nota');
+      let suma = 0;
+      let contador = 0;
+
+      celdasNotas.forEach(function (celdaNota) {
+        suma += parseInt(celdaNota.textContent);
+        contador++;
+      });
+
+      let = suma / contador;
+      fila.querySelector('.promedio').textContent = promedio.toFixed(2);
+    }
+  </script>
+</body>
+</html>

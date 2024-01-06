@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <center>
+    <h1>Bienvenid@ <span id="nombre"></span></h1>
+    <button class="btn" onclick="salir()">salir</button>
+  </center>
+    <script>
+      let nombre1 = document.getElementById("nombre")
+      let nombre = sessionStorage.getItem('nombre');
+      if (!nombre){
+        location.href ="index.html";
+      }
+      document.getElementById('nombre').innerText = nombre;
+
+      function salir(){
+        sessionStorage.removeItem('nombre');
+        window.location.href="index.html";
+      }
+      </script>
+
+</body>
+</html>
