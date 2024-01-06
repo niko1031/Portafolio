@@ -3,4 +3,15 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+.theme-light button{
+    background-color: gray;
+    color: white;
+    border: none;
 
+}
+
+.theme-light button:hover{
+    background-color: whitesmoke;
+    color: black;
+    border: none;
+}
